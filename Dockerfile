@@ -1,0 +1,12 @@
+FROM scratch
+
+ENV MYK8DEMO_LOCAL_HOST 0.0.0.0
+ENV MYK8DEMO_LOCAL_PORT 8080
+ENV MYK8DEMO_LOG_LEVEL 0
+
+EXPOSE $MYK8DEMO_LOCAL_PORT
+
+COPY certs /etc/ssl/
+COPY bin/linux-amd64/myk8demo /
+
+CMD ["/myk8demo"]
